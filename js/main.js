@@ -1,4 +1,6 @@
 $(document).ready(function() {
-    console.log("jQuery is ready!");
-    
+    // Load header, buttons, and footer components
+    $('#header').load('components/header.html');
+    $('#buttons').load('components/buttons.html');
+    $('#footer').load('components/footer.html');
 });

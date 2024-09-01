@@ -1,0 +1,45 @@
+/* Apply Flexbox to the body and html */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content area should take up all available space */
+body > *:not(footer) {
+    flex: 1;
+}
+
+/* Footer styles */
+.site-footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin: 0; 
+    width: 100%; 
+}
+
+/* Footer content styling */
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-content h2 {
+    margin: 0 0 10px;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.footer-content a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
