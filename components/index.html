@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIS</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js" defer></script>
+    <script>
+        $(document).ready(function() {
+            // Load header, buttons, and footer components
+            $('#header').load('components/header.html');
+            $('#buttons').load('components/buttons.html');
+            $('#footer').load('components/footer.html');
+        });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="buttons"></div>
+    <!-- Your main content can go here -->
+    <div id="footer"></div>
+</body>
+</html>
