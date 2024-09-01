@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Login</title>
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Employee Login</h2>
+        <form id="employeeLoginForm">
+            <label for="employeeId">Employee ID:</label>
+            <input type="text" id="employeeId" name="employeeId" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe">Remember Password</label>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script src="js/employee-login.js"></script>
+</body>
+</html>
