@@ -3,12 +3,14 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
 }
 
+/* Styles for the login container */
 .login-container {
     background-color: #ffffff;
     border: 5px solid #007bff; /* Thick blue border */
@@ -18,6 +20,7 @@ body {
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    margin-bottom: 20px; /* Space between login form and other elements */
 }
 
 h1 {
@@ -26,16 +29,19 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Styles for each form group */
 .form-group {
     margin-bottom: 20px; /* Increased space between form fields */
 }
 
+/* Label styles */
 label {
     display: block;
     margin-bottom: 5px;
     color: #555;
 }
 
+/* Input fields styles */
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -45,10 +51,12 @@ input[type="password"] {
     box-sizing: border-box;
 }
 
+/* Checkbox styles */
 input[type="checkbox"] {
     margin-right: 5px;
 }
 
+/* Button styles */
 button {
     background-color: #007bff;
     color: white;
@@ -62,4 +70,38 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+/* Styles for the student details table container */
+.student-table-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto; /* Center the table */
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styles */
+#studentTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#studentTable th,
+#studentTable td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#studentTable th {
+    background-color: #007bff;
+    color: white;
+}
+
+#studentTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
