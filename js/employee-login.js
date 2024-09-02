@@ -1,3 +1,6 @@
+// Import configuration from config.js
+import config from '../js/config/config.js';
+
 document.getElementById('employeeLoginForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -25,9 +28,9 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
             localStorage.setItem('password', password); // Note: Storing plain passwords is not secure
         }
 
-        // Fetch student data from the API
+        // Fetch student data from the API using the config URL
         $.ajax({
-            url: 'http://localhost:8191/v1/mis/getallstudentdetails?pageNumber=0&pageSize=0',
+            url: `${config.GET_ALL_STUDENTS}?pageNumber=0&pageSize=0`,
             method: 'GET',
             success: function(response) {
                 console.log('API Response:', response); // Log the response to check its format
@@ -95,7 +98,7 @@ $('#deleteButton').click(function() {
     }
 
     // Construct the URL with the selected IDs
-    const url = `http://localhost:8191/v1/mis/deletetudentsbystudentids/${selectedIds.join(',')}`;
+    const url = `${config.DELETE_STUDENTS}/${selectedIds.join(',')}`;
 
     // Make AJAX request to delete students
     $.ajax({
@@ -140,7 +143,7 @@ $('#addStudentButton').click(function() {
 
     // Make the POST request to add the student
     $.ajax({
-        url: 'http://localhost:8191/v1/mis/newstudents',
+        url: config.ADD_STUDENTS,
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify([newStudent]), // Wrap newStudent in an array
