@@ -30,7 +30,7 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
             url: 'http://localhost:8191/v1/mis/getallstudentdetails?pageNumber=0&pageSize=0',
             method: 'GET',
             success: function(response) {
-                console.log(response); // Log the response to check its format
+                console.log('API Response:', response); // Log the response to check its format
                 
                 // Check if response contains studentDetails and if it is an array
                 if (response.studentDetails && Array.isArray(response.studentDetails)) {
@@ -44,6 +44,7 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
                     students.forEach(student => {
                         const row = `
                             <tr>
+                                <td><input type="checkbox" class="student-checkbox" data-student-id="${student.studentId}"></td>
                                 <td>${student.id}</td>
                                 <td>${student.firstName}</td>
                                 <td>${student.lastName}</td>
@@ -62,13 +63,15 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
                         tableBody.append(row);
                     });
 
-                    // Show the table after data is loaded
+                    // Show the table container and hide the login form after data is loaded
                     $('.student-table-container').show();
+                    $('.login-container').hide();
                 } else {
                     console.error('Expected studentDetails to be an array but got:', response.studentDetails);
                 }
             },
-            error: function() {
+            error: function(xhr, status, error) {
+                console.error('AJAX Error:', status, error);
                 alert('Failed to fetch student details. Please try again.');
             }
         });
@@ -76,4 +79,41 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
     } else {
         alert('Invalid Employee ID or Password.');
     }
+});
+
+// Handle DELETE button click
+$('#deleteButton').click(function() {
+    // Get selected student IDs
+    const selectedIds = $('.student-checkbox:checked').map(function() {
+        return $(this).data('student-id');
+    }).get();
+
+    if (selectedIds.length === 0) {
+        alert('No students selected for deletion.');
+        return;
+    }
+
+    // Construct the URL with the selected IDs
+    const url = `http://localhost:8191/v1/mis/deletetudentsbystudentids/${selectedIds.join(',')}`;
+
+    // Make AJAX request to delete students
+    $.ajax({
+        url: url,
+        method: 'DELETE',
+        success: function(response) {
+            alert(`Students with IDs ${selectedIds.join(', ')} are deleted.`);
+            // Optionally, remove the deleted rows from the table
+            $('.student-checkbox:checked').closest('tr').remove();
+        },
+        error: function(xhr, status, error) {
+            console.error('DELETE Error:', status, error);
+            alert('Failed to delete students. Please try again.');
+        }
+    });
+});
+
+// Handle Select All checkbox
+$('#selectAll').change(function() {
+    const isChecked = $(this).is(':checked');
+    $('.student-checkbox').prop('checked', isChecked);
 });
