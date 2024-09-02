@@ -63,8 +63,9 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
                         tableBody.append(row);
                     });
 
-                    // Show the table container and hide the login form after data is loaded
+                    // Show the table container and the buttons, and hide the login form after data is loaded
                     $('.student-table-container').show();
+                    $('.button-container').show(); 
                     $('.login-container').hide();
                 } else {
                     console.error('Expected studentDetails to be an array but got:', response.studentDetails);
@@ -116,4 +117,40 @@ $('#deleteButton').click(function() {
 $('#selectAll').change(function() {
     const isChecked = $(this).is(':checked');
     $('.student-checkbox').prop('checked', isChecked);
+});
+
+// Handle ADD Students button click
+$('#addStudentButton').click(function() {
+    // Example: Show a prompt to enter new student details
+    const newStudent = {
+        id: prompt("Enter ID:"),
+        firstName: prompt("Enter First Name:"),
+        lastName: prompt("Enter Last Name:"),
+        gender: prompt("Enter Gender (M/F):"),
+        age: prompt("Enter Age:"),
+        email: prompt("Enter Email:"),
+        contactNumber: prompt("Enter Contact Number:"),
+        addressLine1: prompt("Enter Address Line 1:"),
+        addressLine2: prompt("Enter Address Line 2:"),
+        addressLine3: prompt("Enter Address Line 3:"),
+        state: prompt("Enter State:"),
+        zipCode: prompt("Enter Zipcode:"),
+        course: prompt("Enter Course:")
+    };
+
+    // Make the POST request to add the student
+    $.ajax({
+        url: 'http://localhost:8191/v1/mis/newstudents',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify([newStudent]), // Wrap newStudent in an array
+        success: function(response) {
+            alert('Student added successfully!');
+            // Optionally, refresh the table or fetch the updated student list here
+        },
+        error: function(xhr, status, error) {
+            console.error('POST Error:', status, error);
+            alert('Failed to add student. Please try again.');
+        }
+    });
 });
