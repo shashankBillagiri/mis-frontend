@@ -25,7 +25,7 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
         // Store credentials in localStorage if rememberMe is checked
         if (rememberMe) {
             localStorage.setItem('employeeId', employeeId);
-            localStorage.setItem('password', password); // Note: Storing plain passwords is not secure
+            localStorage.setItem('password', password); 
         }
 
         // Fetch student data from the API using the config URL
