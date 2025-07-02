@@ -8,20 +8,20 @@ This repository contains the frontend for the Management Information Systems (MI
 
 ### Login Succesful Screen
 
-![Employee Login](assets/LoginSuccesful.png)
+![Login Succesful](assets/LoginSuccesful.png)
 
-### Display Records Screen
+### Display Records
 
-![Employee Login](assets/DisplayData.png)
+![Display Records](assets/DisplayData.png)
 
 ### Select a Record
 
-[Employee Login](assets/CheckBox.png)
+![Select a Record](assets/CheckBox.png)
 
 ### Select All Screen
 
-![Employee Login](assets/SelectAll.png)
+![Select All Screen](assets/SelectAll.png)
 
 ### Delete Records Screen
 
-![Employee Login](assets/DeleteRecords.png)
+![Delete Records Screen](assets/DeleteRecords.png)
