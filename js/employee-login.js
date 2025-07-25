@@ -1,4 +1,4 @@
-// Import configuration from config.js
+
 import config from '../js/config/config.js';
 
 document.getElementById('employeeLoginForm').addEventListener('submit', function(event) {
@@ -8,17 +8,17 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
     const password = document.getElementById('password').value;
     const rememberMe = document.getElementById('rememberMe').checked;
 
-    // Simple validation
+    
     if (employeeId === '' || password === '') {
         alert('Please enter both Employee ID and Password.');
         return;
     }
 
-    // Hardcoded login credentials for demonstration purposes
+    
     const hardcodedEmployeeId = 'admin';
     const hardcodedPassword = 'password123';
 
-    // Check credentials
+   
     if (employeeId === hardcodedEmployeeId && password === hardcodedPassword) {
         alert('Login successful!');
 
@@ -28,14 +28,14 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
             localStorage.setItem('password', password); 
         }
 
-        // Fetch student data from the API using the config URL
+        
         $.ajax({
             url: `${config.GET_ALL_STUDENTS}?pageNumber=0&pageSize=0`,
             method: 'GET',
             success: function(response) {
-                console.log('API Response:', response); // Log the response to check its format
+                console.log('API Response:', response); 
                 
-                // Check if response contains studentDetails and if it is an array
+                
                 if (response.studentDetails && Array.isArray(response.studentDetails)) {
                     const students = response.studentDetails;
                     const tableBody = $('#studentTable tbody');
@@ -43,7 +43,7 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
                     // Clear any existing rows
                     tableBody.empty();
 
-                    // Populate the table with student data
+                    
                     students.forEach(student => {
                         const row = `
                             <tr>
@@ -85,9 +85,9 @@ document.getElementById('employeeLoginForm').addEventListener('submit', function
     }
 });
 
-// Handle DELETE button click
+
 $('#deleteButton').click(function() {
-    // Get selected student IDs
+  
     const selectedIds = $('.student-checkbox:checked').map(function() {
         return $(this).data('student-id');
     }).get();
@@ -100,7 +100,7 @@ $('#deleteButton').click(function() {
     // Construct the URL with the selected IDs
     const url = `${config.DELETE_STUDENTS}/${selectedIds.join(',')}`;
 
-    // Make AJAX request to delete students
+   
     $.ajax({
         url: url,
         method: 'DELETE',
@@ -116,15 +116,15 @@ $('#deleteButton').click(function() {
     });
 });
 
-// Handle Select All checkbox
+
 $('#selectAll').change(function() {
     const isChecked = $(this).is(':checked');
     $('.student-checkbox').prop('checked', isChecked);
 });
 
-// Handle ADD Students button click
+
 $('#addStudentButton').click(function() {
-    // Example: Show a prompt to enter new student details
+ 
     const newStudent = {
         id: prompt("Enter ID:"),
         firstName: prompt("Enter First Name:"),
@@ -141,15 +141,15 @@ $('#addStudentButton').click(function() {
         course: prompt("Enter Course:")
     };
 
-    // Make the POST request to add the student
+    
     $.ajax({
         url: config.ADD_STUDENTS,
         method: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify([newStudent]), // Wrap newStudent in an array
+        data: JSON.stringify([newStudent]), 
         success: function(response) {
             alert('Student added successfully!');
-            // Optionally, refresh the table or fetch the updated student list here
+            
         },
         error: function(xhr, status, error) {
             console.error('POST Error:', status, error);

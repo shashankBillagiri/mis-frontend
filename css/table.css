@@ -3,15 +3,15 @@
     margin: 20px auto;
     width: 90%;
     max-width: 1200px;
-    position: relative; /* Relative positioning to place button absolutely */
-    padding-top: 60px; /* Add padding to ensure space for the delete button */
-    display: none; /* Hide by default */
+    position: relative;
+    padding-top: 60px;
+    display: none; 
 }
 
-/* Center-align the table title */
+
 .table-title {
     text-align: center; 
-    margin-bottom: 20px; /* Space below the title */
+    margin-bottom: 20px;
 }
 
 /* Adjust the position of the delete button */
@@ -26,19 +26,19 @@
 
 /* Style for the delete button */
 #deleteButton {
-    background-color: #dc3545; /* Red background for the button */
-    color: white; /* White text color */
-    border: none; /* Remove default border */
-    padding: 10px 15px; /* Larger padding for a more prominent button */
-    font-size: 16px; /* Slightly larger font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    border-radius: 5px; /* Rounded corners */
-    z-index: 10; /* Ensure the button is above other content */
+    background-color: #dc3545;
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    z-index: 10;
 }
 
-/* Hover effect for the delete button */
+
 #deleteButton:hover {
-    background-color: #c82333; /* Darker red on hover */
+    background-color: #c82333; 
 }
 
 /* Table styling */
@@ -49,28 +49,28 @@
 }
 
 #studentTable th {
-    background-color: #007bff; /* Blue background for headers */
+    background-color: #007bff; 
     color: white;
     padding: 10px;
-    border: 2px solid #007bff; /* Blue border for headers */
+    border: 2px solid #007bff; 
     text-align: left;
 }
 
 #studentTable td {
     padding: 10px;
-    border: 1px solid #ff0000; /* Red border for table cells */
-    border-bottom: 1px solid #ff0000; /* Red line between rows */
+    border: 1px solid #ff0000; 
+    border-bottom: 1px solid #ff0000; 
 }
 
 #studentTable tr:nth-child(even) {
-    background-color: #f2f2f2; /* Light gray background for even rows */
+    background-color: #f2f2f2; 
 }
 
 #studentTable tr:hover {
-    background-color: #ddd; /* Light gray background for row hover effect */
+    background-color: #ddd; 
 }
 
-/* Style for checkboxes in table */
+
 .student-checkbox {
     margin: 0;
     padding: 0;
@@ -78,11 +78,11 @@
 
 /* Hide the login form when the table is visible */
 .login-container {
-    display: block; /* Show by default */
+    display: block; 
 }
 
 .student-table-container.show {
-    display: block; /* Show the table container */
+    display: block;
 }
 
 .student-table-container ~ .login-container {
@@ -98,7 +98,7 @@
 }
 
 #addStudentButton, #deleteButton {
-    background-color: #28a745; /* Green for add button */
+    background-color: #28a745; 
     color: white;
     border: none;
     padding: 10px 15px;
@@ -109,14 +109,14 @@
 }
 
 #deleteButton {
-    background-color: #dc3545; /* Red background for delete button */
+    background-color: #dc3545; 
 }
 
 #addStudentButton:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838; 
 }
 
 #deleteButton:hover {
-    background-color: #c82333; /* Darker red on hover */
+    background-color: #c82333; 
 }
 
